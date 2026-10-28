@@ -19,6 +19,7 @@ const assets=new Map([['/','index.html'],['/app.js','app.js'],['/style.css','sty
 const rates=new Map(),checking=new Set();
 const aiRunning=new Set();store.run("UPDATE ai_jobs SET status='failed',error='Server restarted; unfinished generation was not billed again automatically.' WHERE status IN ('writing','drawing')");
 const secure=process.env.NODE_ENV==='production';
+const trustedOrigins=new Set((process.env.KOMA_PUBLIC_ORIGINS||'').split(',').map(x=>x.trim()).filter(Boolean));
 function equal(a,b){const x=Buffer.from(a),y=Buffer.from(b);return x.length===y.length&&timingSafeEqual(x,y);}
 function json(res,status,body){res.writeHead(status,{'content-type':'application/json; charset=utf-8','cache-control':'no-store'});res.end(JSON.stringify(body));}
 function bad(code,status=400){const e=new Error(code);e.status=status;throw e;}
@@ -36,7 +37,7 @@ const server=http.createServer(async(req,res)=>{
  try {
   const url=new URL(req.url,'http://localhost'),path=url.pathname;
   if(req.method==='POST'){
-   const origin=req.headers.origin;if(origin&&new URL(origin).host!==req.headers.host)bad('CROSS_ORIGIN_REQUEST',403);
+   const origin=req.headers.origin;if(origin&&new URL(origin).host!==req.headers.host&&!trustedOrigins.has(origin))bad('CROSS_ORIGIN_REQUEST',403);
    if(!(req.headers['content-type']||'').startsWith('application/json'))bad('JSON_REQUIRED',415);
    throttle(req);
   }

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "",
+  "outputDirectory": "public",
+  "rewrites": [
+    {"source": "/api/:path*", "destination": "https://koma-zcash.201-18-198-162.sslip.io/api/:path*"},
+    {"source": "/art/:path*", "destination": "https://koma-zcash.201-18-198-162.sslip.io/art/:path*"}
+  ],
+  "headers": [{
+    "source": "/:path*",
+    "headers": [
+      {"key": "X-Content-Type-Options", "value": "nosniff"},
+      {"key": "Referrer-Policy", "value": "no-referrer"},
+      {"key": "X-Frame-Options", "value": "DENY"}
+    ]
+  }]
+}
