@@ -1,0 +1,302 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-28T22:03:16.885121+00:00",
+  "title": "Design System: KOMA / Zcash",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "Black ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.00203 106.61)",
+          "oklch(26.43% 0.00203 106.61)",
+          "oklch(37.86% 0.00203 106.61)",
+          "oklch(49.29% 0.00203 106.61)",
+          "oklch(60.71% 0.00203 106.61)",
+          "oklch(72.14% 0.00203 106.61)",
+          "oklch(83.57% 0.00203 106.61)",
+          "oklch(95.00% 0.00203 106.61)"
+        ]
+      },
+      "stock": {
+        "role": "neutral",
+        "displayName": "Black stock",
+        "tonalRamp": [
+          "oklch(15.00% 0.00193 106.56)",
+          "oklch(26.43% 0.00193 106.56)",
+          "oklch(37.86% 0.00193 106.56)",
+          "oklch(49.29% 0.00193 106.56)",
+          "oklch(60.71% 0.00193 106.56)",
+          "oklch(72.14% 0.00193 106.56)",
+          "oklch(83.57% 0.00193 106.56)",
+          "oklch(95.00% 0.00193 106.56)"
+        ]
+      },
+      "raised": {
+        "role": "neutral",
+        "displayName": "Raised stock",
+        "tonalRamp": [
+          "oklch(15.00% 0.00371 106.67)",
+          "oklch(26.43% 0.00371 106.67)",
+          "oklch(37.86% 0.00371 106.67)",
+          "oklch(49.29% 0.00371 106.67)",
+          "oklch(60.71% 0.00371 106.67)",
+          "oklch(72.14% 0.00371 106.67)",
+          "oklch(83.57% 0.00371 106.67)",
+          "oklch(95.00% 0.00371 106.67)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Warm paper",
+        "tonalRamp": [
+          "oklch(15.00% 0.01437 84.58)",
+          "oklch(26.43% 0.01437 84.58)",
+          "oklch(37.86% 0.01437 84.58)",
+          "oklch(49.29% 0.01437 84.58)",
+          "oklch(60.71% 0.01437 84.58)",
+          "oklch(72.14% 0.01437 84.58)",
+          "oklch(83.57% 0.01437 84.58)",
+          "oklch(95.00% 0.01437 84.58)"
+        ]
+      },
+      "orange": {
+        "role": "primary",
+        "displayName": "Orange printing ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.22369 34.33)",
+          "oklch(26.43% 0.22369 34.33)",
+          "oklch(37.86% 0.22369 34.33)",
+          "oklch(49.29% 0.22369 34.33)",
+          "oklch(60.71% 0.22369 34.33)",
+          "oklch(72.14% 0.22369 34.33)",
+          "oklch(83.57% 0.22369 34.33)",
+          "oklch(95.00% 0.22369 34.33)"
+        ]
+      },
+      "yellow": {
+        "role": "secondary",
+        "displayName": "Yellow highlight",
+        "tonalRamp": [
+          "oklch(15.00% 0.16173 90.94)",
+          "oklch(26.43% 0.16173 90.94)",
+          "oklch(37.86% 0.16173 90.94)",
+          "oklch(49.29% 0.16173 90.94)",
+          "oklch(60.71% 0.16173 90.94)",
+          "oklch(72.14% 0.16173 90.94)",
+          "oklch(83.57% 0.16173 90.94)",
+          "oklch(95.00% 0.16173 90.94)"
+        ]
+      },
+      "soft": {
+        "role": "neutral",
+        "displayName": "Soft ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.01294 96.48)",
+          "oklch(26.43% 0.01294 96.48)",
+          "oklch(37.86% 0.01294 96.48)",
+          "oklch(49.29% 0.01294 96.48)",
+          "oklch(60.71% 0.01294 96.48)",
+          "oklch(72.14% 0.01294 96.48)",
+          "oklch(83.57% 0.01294 96.48)",
+          "oklch(95.00% 0.01294 96.48)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Printed rule",
+        "tonalRamp": [
+          "oklch(15.00% 0.00864 106.87)",
+          "oklch(26.43% 0.00864 106.87)",
+          "oklch(37.86% 0.00864 106.87)",
+          "oklch(49.29% 0.00864 106.87)",
+          "oklch(60.71% 0.00864 106.87)",
+          "oklch(72.14% 0.00864 106.87)",
+          "oklch(83.57% 0.00864 106.87)",
+          "oklch(95.00% 0.00864 106.87)"
+        ]
+      },
+      "error": {
+        "role": "neutral",
+        "displayName": "Error ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.09336 34.59)",
+          "oklch(26.43% 0.09336 34.59)",
+          "oklch(37.86% 0.09336 34.59)",
+          "oklch(49.29% 0.09336 34.59)",
+          "oklch(60.71% 0.09336 34.59)",
+          "oklch(72.14% 0.09336 34.59)",
+          "oklch(83.57% 0.09336 34.59)",
+          "oklch(95.00% 0.09336 34.59)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Condensed masthead",
+        "purpose": "Major statements, branding and comic-print elements."
+      },
+      "body": {
+        "displayName": "Operational reading",
+        "purpose": "Descriptions, instructions and supporting copy."
+      }
+    },
+    "shadows": [
+      {
+        "name": "printed-issue",
+        "value": "15px 22px 0 #050505, 0 30px 70px #0007",
+        "purpose": "Featured physical comic issue only."
+      },
+      {
+        "name": "printed-stamp",
+        "value": "4px 4px 0 #000",
+        "purpose": "Yellow printed stamp only."
+      }
+    ],
+    "motion": [
+      {
+        "name": "control-state",
+        "value": "160ms ease-out",
+        "purpose": "Background, border and primary-action lift."
+      },
+      {
+        "name": "card-state",
+        "value": "180ms ease-out",
+        "purpose": "Card border and lift."
+      },
+      {
+        "name": "art-state",
+        "value": "200ms ease-out",
+        "purpose": "Issue tilt and cover image scale."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "none",
+        "purpose": "Disable transitions and hover transforms under prefers-reduced-motion: reduce."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide",
+        "value": "1700px"
+      },
+      {
+        "name": "compact-desktop",
+        "value": "1100px"
+      },
+      {
+        "name": "stacked",
+        "value": "800px"
+      },
+      {
+        "name": "phone",
+        "value": "470px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary action",
+      "kind": "button",
+      "description": "Orange action for creating, backing and unlocking.",
+      "html": "<button class=\"ds-primary\">Open launch studio</button>",
+      "css": ".ds-primary{display:inline-flex;justify-content:center;align-items:center;gap:20px;min-height:48px;border:1px solid var(--rule,#34342f);border-radius:7px;padding:12px 20px;font:650 14px Schibsted,Arial,sans-serif;text-decoration:none;cursor:pointer;transition:background .16s ease-out,transform .16s ease-out,border-color .16s ease-out;background:var(--orange,#ff4a1c);border-color:var(--orange,#ff4a1c);color:#14100b}.ds-primary:hover{background:#e94219;border-color:#e94219;transform:translateY(-1px)}.ds-primary:focus-visible{outline:3px solid var(--yellow,#ffd23f);outline-offset:4px}.ds-primary:disabled{opacity:.5;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none}.ds-primary:hover{transform:none}}",
+      "refersTo": "button-primary"
+    },
+    {
+      "name": "Secondary action",
+      "kind": "button",
+      "description": "Quiet stock action for supporting operations.",
+      "html": "<button class=\"ds-secondary\">Guided panels</button>",
+      "css": ".ds-secondary{display:inline-flex;justify-content:center;align-items:center;gap:20px;min-height:48px;border:1px solid var(--rule,#34342f);border-radius:7px;padding:12px 20px;font:650 14px Schibsted,Arial,sans-serif;text-decoration:none;cursor:pointer;transition:background .16s ease-out,transform .16s ease-out,border-color .16s ease-out;background:var(--stock,#191918);color:var(--paper,#f1ece2)}.ds-secondary:hover{background:var(--yellow,#ffd23f);border-color:var(--yellow,#ffd23f)}.ds-secondary:focus-visible{outline:3px solid var(--yellow,#ffd23f);outline-offset:4px}.ds-secondary:disabled{opacity:.5;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-secondary{transition:none}}",
+      "refersTo": "button-secondary"
+    },
+    {
+      "name": "Labeled field",
+      "kind": "input",
+      "description": "Persistent labels above dark fields; shared yellow focus.",
+      "html": "<label class=\"ds-label\">Series title<input class=\"ds-input\" placeholder=\"The ferry of lost things\"></label>",
+      "css": ".ds-label{display:block;color:var(--paper,#f1ece2);font:550 12px Schibsted,Arial,sans-serif;margin:20px 0 8px}.ds-input{display:block;width:100%;min-height:48px;border:1px solid #4c4c45;background:#121211;color:var(--paper,#f1ece2);padding:12px 14px;border-radius:6px;margin-top:7px;font:14px Schibsted,Arial,sans-serif;caret-color:var(--yellow,#ffd23f);transition:border-color .16s}.ds-input:hover{border-color:#737166}.ds-input::placeholder{color:#7e7d72}.ds-input:focus-visible{outline:3px solid var(--yellow,#ffd23f);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-input{transition:none}}",
+      "refersTo": "input"
+    },
+    {
+      "name": "Route navigation",
+      "kind": "nav",
+      "description": "Muted links with a thin orange active underline.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Example navigation\"><a href=\"#/\" aria-current=\"page\">Discover</a><a href=\"#/board\">Launchpad</a><a href=\"#/shelf\">My library</a></nav>",
+      "css": ".ds-nav{display:flex;gap:28px;font-family:Schibsted,Arial,sans-serif}.ds-nav a{position:relative;display:flex;align-items:center;min-height:44px;font-size:13px;font-weight:500;text-decoration:none;color:var(--soft,#aaa89f)}.ds-nav a:hover,.ds-nav a[aria-current=page]{color:var(--paper,#f1ece2)}.ds-nav a[aria-current=page]:after{position:absolute;content:\"\";height:2px;left:0;right:0;bottom:0;background:var(--orange,#ff4a1c)}.ds-nav a:focus-visible{outline:3px solid var(--yellow,#ffd23f);outline-offset:4px}"
+    },
+    {
+      "name": "Catalog filters",
+      "kind": "chip",
+      "description": "Selection uses raised stock; genre options come from the live catalog.",
+      "html": "<div class=\"ds-filters\" role=\"group\" aria-label=\"Filter series\"><button class=\"ds-filter ds-selected\">All worlds</button><button class=\"ds-filter\">Fantasy</button></div>",
+      "css": ".ds-filters{display:flex;gap:5px;flex-wrap:wrap}.ds-filter{font:650 12px Schibsted,Arial,sans-serif;min-height:40px;border:none;background:transparent;color:var(--soft,#aaa89f);border-radius:7px;padding:9px 16px;cursor:pointer;transition:background .16s ease-out}.ds-filter.ds-selected{color:var(--paper,#f1ece2);background:var(--raised,#21211f)}.ds-filter:hover{background:var(--yellow,#ffd23f)}.ds-filter:focus-visible{outline:3px solid var(--yellow,#ffd23f);outline-offset:4px}@media(max-width:470px){.ds-filter{font-size:11px;padding:9px 13px;min-height:44px}}@media(prefers-reduced-motion:reduce){.ds-filter{transition:none}}",
+      "refersTo": "filter-selected"
+    },
+    {
+      "name": "Comic card without artwork",
+      "kind": "card",
+      "description": "The actual missing-cover treatment, without made-up metrics or reference imagery.",
+      "html": "<a class=\"ds-comic\" href=\"#/board\"><div class=\"ds-cover\">A STORY<br>TAKES SHAPE.</div><div class=\"ds-meta\"><span class=\"ds-small\">Creator</span><h3>Series title</h3><p>A published series pitch appears here.</p></div></a>",
+      "css": ".ds-comic{display:block;text-decoration:none;background:var(--stock,#191918);color:var(--paper,#f1ece2);border:1px solid var(--rule,#34342f);border-radius:14px;overflow:hidden;transition:border-color .18s ease-out,transform .18s ease-out}.ds-comic:hover{border-color:#837768;transform:translateY(-4px)}.ds-comic:focus-visible{outline:3px solid var(--yellow,#ffd23f);outline-offset:4px}.ds-cover{display:grid;place-items:center;height:265px;font:35px/1.05 Anton,sans-serif;color:#81796c;background:#26231e}.ds-meta{padding:22px;font-family:Schibsted,Arial,sans-serif}.ds-small{font-size:10px;color:var(--soft,#aaa89f)}.ds-meta h3{font-size:23px;font-weight:600;line-height:1.08;letter-spacing:-.035em;margin:8px 0 10px}.ds-meta p{font-size:12px;line-height:1.7;color:var(--soft,#aaa89f);margin-bottom:20px}@media(prefers-reduced-motion:reduce){.ds-comic{transition:none}.ds-comic:hover{transform:none}}",
+      "refersTo": "comic-card"
+    },
+    {
+      "name": "Canon choice",
+      "kind": "button",
+      "description": "Selected choice uses yellow; the sample omits invented vote counts.",
+      "html": "<button class=\"ds-choice\">A letter with no sender</button><button class=\"ds-choice ds-choice-selected\">A memory that is not his</button>",
+      "css": ".ds-choice{display:flex;justify-content:space-between;gap:14px;width:100%;min-height:48px;background:var(--stock,#191918);border:1px solid var(--rule,#34342f);border-radius:7px;color:var(--paper,#f1ece2);text-align:left;padding:15px 18px;font:650 13px Schibsted,Arial,sans-serif;cursor:pointer;transition:background .16s ease-out}.ds-choice-selected{background:var(--yellow,#ffd23f);color:var(--ink,#10100f);border-color:var(--yellow,#ffd23f)}.ds-choice:hover{background:var(--yellow,#ffd23f);color:var(--ink,#10100f)}.ds-choice:focus-visible{outline:3px solid var(--yellow,#ffd23f);outline-offset:4px}.ds-choice:disabled{opacity:.5;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-choice{transition:none}}",
+      "refersTo": "choice-selected"
+    },
+    {
+      "name": "Empty state",
+      "kind": "custom",
+      "description": "Dashed boundary with an explanation and contextual return action.",
+      "html": "<div class=\"ds-empty\"><p>Your shelf is empty. Back a series or unlock your first episode.</p><a href=\"#/\">Explore stories</a></div>",
+      "css": ".ds-empty{border:1px dashed var(--rule,#34342f);border-radius:12px;padding:40px;color:var(--soft,#aaa89f);max-width:75ch;font:16px/1.55 Schibsted,Arial,sans-serif}.ds-empty p{margin-top:0;max-width:68ch}.ds-empty a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;background:var(--orange,#ff4a1c);border:1px solid var(--orange,#ff4a1c);border-radius:7px;padding:12px 20px;color:#14100b;font-size:14px;font-weight:650;text-decoration:none;transition:background .16s ease-out,transform .16s ease-out}.ds-empty a:hover{background:#e94219;border-color:#e94219;transform:translateY(-1px)}.ds-empty a:focus-visible{outline:3px solid var(--yellow,#ffd23f);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-empty a{transition:none}.ds-empty a:hover{transform:none}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Comic Print Launchpad",
+    "overview": "KOMA inherits its original comic-print world: black stock, warm paper, orange printing ink, yellow highlights, condensed Anton mastheads and real comic artwork. The user pinned that identity and its Anton/Schibsted pairing. Covers carry the personality; controls remain direct and readable. Private visual references informed the build but are not distributable assets.\n\nDiscovery is cover-led. The studio, invoices and protected reader use the same materials at a more practical density. A folded, rotated issue can carry a physical print shadow; a form remains a flat, bordered surface. New screens should extend this vocabulary while preserving original KOMA art and attribution.\n\nThis is a scan of `public/index.html`, `public/style.css` and `public/app.js`, merging the earlier inherited-world note. Visual evidence includes the 1440px desktop, 375px home/studio, locked-reader and guided-reader captures. The finish-review disposition covers the five scored fixes after two rounds only; it does not certify the full application, backend, payment path or feature parity. `MIGRATION.md` remains the feature-gap record.",
+    "keyCharacteristics": [
+      "Original orange-and-black KOMA identity with warm paper contrast.",
+      "Condensed mastheads above calm, practical Schibsted controls.",
+      "Real artwork, physical issue framing and restrained application surfaces.",
+      "Honest testnet labels, explicit preview states and source-derived totals."
+    ],
+    "rules": [
+      {
+        "name": "The Ink and Paper Rule",
+        "body": "Orange and yellow serve actions, status or print character; artwork supplies the wider color range.",
+        "section": "colors"
+      },
+      {
+        "name": "The Masthead Rule",
+        "body": "Keep Anton for KOMA branding, major display statements and comic-print elements; use Schibsted for operational reading and interaction.",
+        "section": "typography"
+      },
+      {
+        "name": "The Printed Object Rule",
+        "body": "Rotations and hard offset shadows describe comic sheets and stamps; keep operational containers level and bordered.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** preserve KOMA's original orange/black identity, Anton/Schibsted pairing and real comic art.",
+      "**Do** use warm paper, strong comic rules and physical print depth where they describe actual comic material.",
+      "**Do** keep keyboard focus, reduced motion, semantic controls and phone navigation usable across new surfaces.",
+      "**Do** show explicit empty/error states and distinguish creator previews from verified reader access.",
+      "**Do** derive metrics from their actual source and preserve testnet, provenance and trust labels."
+    ],
+    "donts": [
+      "**Don't** publish private reference-board images or treat them as KOMA artwork.",
+      "**Don't** replace original KOMA projects or interpret this visual record as full migration completion.",
+      "**Don't** present mock trades, made-up backing, fake success or creator previews as real payment evidence.",
+      "**Don't** spread print-object rotations and offset shadows into ordinary forms or application cards.",
+      "**Don't** generalize the smallest issue/stamp print labels into a default UI text scale."
+    ]
+  }
+}

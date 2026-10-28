@@ -29,7 +29,7 @@ function amount(value,name='AMOUNT'){if(!Number.isSafeInteger(value)||value<1000
 function auth(req){const token=(req.headers.cookie||'').match(/(?:^|; )koma_creator=([^;]+)/)?.[1];if(!token||!equal(token,sha(admin)))bad('CREATOR_LOGIN_REQUIRED',401);}
 function throttle(req){const key=sha(req.socket.remoteAddress||'unknown'),now=Date.now(),r=rates.get(key)||{n:0,at:now};if(now-r.at>60000){r.n=0;r.at=now;}if(++r.n>90)bad('SLOW_DOWN',429);rates.set(key,r);if(rates.size>5000)rates.clear();}
 function session(req,res){let token=(req.headers.cookie||'').match(/(?:^|; )koma_reader=([A-Za-z0-9_-]{32,64})(?:;|$)/)?.[1];if(!token){token=randomBytes(32).toString('base64url');res.setHeader('Set-Cookie',`koma_reader=${token}; HttpOnly; SameSite=Lax; Path=/; Max-Age=31536000${secure?'; Secure':''}`);}return sha(token);}
-const seriesView=(s,sid)=>{const c=store.get('SELECT name,address FROM creators WHERE id=?',s.creator);return {...s,creatorName:c.name,address:c.address,supported:store.support(sid,s.id),backed:store.get("SELECT COALESCE(SUM(amount),0) AS n FROM orders WHERE series=? AND kind='back' AND status='paid'",s.id).n,episodes:store.all('SELECT id,title,summary,price,provenance FROM episodes WHERE series=? ORDER BY created',s.id).map(e=>({...e,unlocked:store.entitled(sid,e.id)})),rounds:store.all('SELECT * FROM rounds WHERE series=? ORDER BY closes DESC',s.id).map(r=>({...r,choices:JSON.parse(r.choices),mine:store.get('SELECT choice FROM votes WHERE round=? AND session=?',r.id,sid)?.choice??null,results:store.all('SELECT choice,COUNT(*) AS count FROM votes WHERE round=? GROUP BY choice',r.id),closed:Date.now()>=r.closes}))};};
+const seriesView=(s,sid,preview=false)=>{const c=store.get('SELECT name,address FROM creators WHERE id=?',s.creator);return {...s,creatorName:c.name,address:c.address,supported:store.support(sid,s.id),backed:store.get("SELECT COALESCE(SUM(amount),0) AS n FROM orders WHERE series=? AND kind='back' AND status='paid'",s.id).n,episodes:store.all('SELECT id,title,summary,price,provenance FROM episodes WHERE series=? ORDER BY created',s.id).map(e=>({...e,unlocked:store.entitled(sid,e.id),creatorPreview:preview})),rounds:store.all('SELECT * FROM rounds WHERE series=? ORDER BY closes DESC',s.id).map(r=>({...r,choices:JSON.parse(r.choices),mine:store.get('SELECT choice FROM votes WHERE round=? AND session=?',r.id,sid)?.choice??null,results:store.all('SELECT choice,COUNT(*) AS count FROM votes WHERE round=? GROUP BY choice',r.id),closed:Date.now()>=r.closes}))};};
 
 const server=http.createServer(async(req,res)=>{
  res.setHeader('X-Content-Type-Options','nosniff');res.setHeader('Referrer-Policy','no-referrer');res.setHeader('X-Frame-Options','DENY');
@@ -42,7 +42,7 @@ const server=http.createServer(async(req,res)=>{
    throttle(req);
   }
   if(req.method==='GET'&&assets.has(path)){const f=assets.get(path);const b=await readFile(join(root,'public',f));res.writeHead(200,{'content-type':f.endsWith('.css')?'text/css':f.endsWith('.js')?'text/javascript':'text/html; charset=utf-8','cache-control':'no-cache'});res.end(b);return;}
-  if(req.method==='GET'&&path==='/fonts/Anton-Regular.ttf'){res.writeHead(200,{'content-type':'font/ttf','cache-control':'public, max-age=604800'});res.end(await readFile(join(root,'public/fonts/Anton-Regular.ttf')));return;}
+  if(req.method==='GET'&&['/fonts/Anton-Regular.ttf','/fonts/SchibstedGrotesk.ttf'].includes(path)){res.writeHead(200,{'content-type':'font/ttf','cache-control':'public, max-age=604800'});res.end(await readFile(join(root,'public',path.slice(1))));return;}
   if(path.startsWith('/api/')){
    const sid=session(req,res);
    const walletPay=path.match(/^\/api\/wallet-pay\/([A-Za-z0-9_-]+)$/);
@@ -79,14 +79,15 @@ const server=http.createServer(async(req,res)=>{
     aiRunning.add(job.id);generateComic({store,job,series:s,key:process.env.FAL_KEY}).then(result=>store.run("UPDATE ai_jobs SET status='ready',result=? WHERE id=?",JSON.stringify(result),job.id)).catch(e=>store.run("UPDATE ai_jobs SET status='failed',error=? WHERE id=?",String(e.message).slice(0,300),job.id)).finally(()=>aiRunning.delete(job.id));
     return json(res,202,{id:job.id,status:'writing'});
    }
+   if(req.method==='GET'&&path==='/api/ai'){auth(req);return json(res,200,{jobs:store.all('SELECT id,series,status,created,error FROM ai_jobs ORDER BY created DESC LIMIT 20')});}
    const aiMatch=path.match(/^\/api\/ai\/([A-Za-z0-9_-]+)$/);
-   if(req.method==='GET'&&aiMatch){auth(req);const j=store.get('SELECT id,status,result,error FROM ai_jobs WHERE id=? AND session=?',aiMatch[1],sid);if(!j)bad('JOB_NOT_FOUND',404);return json(res,200,{...j,result:j.result?JSON.parse(j.result):null});}
+   if(req.method==='GET'&&aiMatch){auth(req);const j=store.get('SELECT id,series,status,result,error FROM ai_jobs WHERE id=?',aiMatch[1]);if(!j)bad('JOB_NOT_FOUND',404);return json(res,200,{...j,result:j.result?JSON.parse(j.result):null});}
    if(req.method==='POST'&&path==='/api/series'){
     auth(req);const b=await body(req);if(!store.get('SELECT id FROM creators WHERE id=?',b.creator))bad('CREATOR_NOT_FOUND');
     return json(res,201,{id:store.series({creator:b.creator,title:text(b.title,'TITLE',100),pitch:text(b.pitch,'PITCH',1000),character:text(b.character,'CHARACTER',500),genre:text(b.genre,'GENRE',40),goal:amount(b.goal,'GOAL')})});
    }
    const seriesMatch=path.match(/^\/api\/series\/([A-Za-z0-9_-]+)$/);
-   if(req.method==='GET'&&seriesMatch){const s=store.get('SELECT * FROM series WHERE id=?',seriesMatch[1]);if(!s)bad('SERIES_NOT_FOUND',404);return json(res,200,seriesView(s,sid));}
+   if(req.method==='GET'&&seriesMatch){const s=store.get('SELECT * FROM series WHERE id=?',seriesMatch[1]);if(!s)bad('SERIES_NOT_FOUND',404);return json(res,200,seriesView(s,sid,!!((req.headers.cookie||'').includes('koma_creator='+sha(admin)))));}
    if(req.method==='POST'&&path==='/api/episodes'){
     auth(req);const b=await body(req);if(!store.get('SELECT id FROM series WHERE id=?',b.series))bad('SERIES_NOT_FOUND');
     if(!Array.isArray(b.pages)||b.pages.length<1||b.pages.length>8)bad('ONE_TO_EIGHT_PAGES_REQUIRED');
@@ -130,7 +131,7 @@ const server=http.createServer(async(req,res)=>{
     }finally{checking.delete(o.id);}
    }
    const episodeMatch=path.match(/^\/api\/episodes\/([A-Za-z0-9_-]+)$/);
-   if(req.method==='GET'&&episodeMatch){const e=store.get('SELECT * FROM episodes WHERE id=?',episodeMatch[1]);if(!e)bad('EPISODE_NOT_FOUND',404);if(!store.entitled(sid,e.id))bad('PAYMENT_REQUIRED',402);return json(res,200,{...e,pages:JSON.parse(e.pages)});}
+   if(req.method==='GET'&&episodeMatch){const e=store.get('SELECT * FROM episodes WHERE id=?',episodeMatch[1]);if(!e)bad('EPISODE_NOT_FOUND',404);const preview=!!((req.headers.cookie||'').includes('koma_creator='+sha(admin)));if(!store.entitled(sid,e.id)&&!preview)bad('PAYMENT_REQUIRED',402);return json(res,200,{...e,pages:JSON.parse(e.pages),creatorPreview:preview&&!store.entitled(sid,e.id)});}
    if(req.method==='GET'&&path==='/api/receipts'){const rows=store.all("SELECT o.id,o.kind,o.amount,o.series,o.episode,o.paid,s.title FROM orders o JOIN series s ON s.id=o.series WHERE o.session=? AND o.status='paid' ORDER BY paid DESC",sid);return json(res,200,{receipts:rows});}
    bad('NOT_FOUND',404);
   }
