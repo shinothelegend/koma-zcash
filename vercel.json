@@ -3,9 +3,11 @@
   "framework": null,
   "buildCommand": "",
   "outputDirectory": "public",
+  "regions": ["iad1"],
+  "functions": {"api/proxy.mjs": {"maxDuration": 120}},
   "rewrites": [
-    {"source": "/api/:path*", "destination": "https://koma-zcash.201-18-198-162.sslip.io/api/:path*"},
-    {"source": "/art/:path*", "destination": "https://koma-zcash.201-18-198-162.sslip.io/art/:path*"}
+    {"source": "/api/:path*", "destination": "/api/proxy?upstream=/api/:path*"},
+    {"source": "/art/:path*", "destination": "/api/proxy?upstream=/art/:path*"}
   ],
   "headers": [{
     "source": "/:path*",

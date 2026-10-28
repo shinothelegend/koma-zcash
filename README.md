@@ -6,7 +6,7 @@ An in-progress Zecathon Wildcard adaptation of the author's earlier KOMA comic s
 
 Live prototype: https://koma-zcash.vercel.app
 
-The static frontend runs on Vercel. `/api/*` and `/art/*` proxy to the isolated Node/SQLite backend on the existing VPS at https://koma-zcash.201-18-198-162.sslip.io. Backend data lives in a persistent Docker volume mount, separate from the other projects. No Railway deployment is used.
+The static frontend runs on Vercel. `/api/*` and `/art/*` use a same-origin transport function in Vercel's `iad1` region to reach the isolated Node/SQLite backend on the existing VPS at https://koma-zcash.201-18-198-162.sslip.io. The transport preserves secure cookies and never caches private responses. All application state and payment logic remain on the VPS. Backend data lives in a persistent Docker volume mount, separate from the other projects. No Railway deployment is used.
 
 Demo video pending: the designated Drive folder is currently a placeholder, not a playable demo video.
 
@@ -26,6 +26,6 @@ Node 22.13 or newer. `npm ci`, then `npm start`. Copy `.env.example` values into
 
 `npm test` passes five checks covering ZIP 321 encoding, browser-bound access, payment replay protection, encrypted storage and supporter vote deadlines. The production Vercel URL has been checked for catalog loading, invoice creation, secure reader cookies and rejection of untrusted request origins. A fresh end-to-end KOMA blockchain payment and AI generation have not yet been demonstrated. Operator access is curated; this is not a production multi-tenant creator service.
 
-`vercel deploy --prod` deploys only `public/` as frontend output using the external rewrites in `vercel.json`. The backend runs with the supplied Dockerfile, persistent `/data`, and server-only provider credentials. The current CLI deployment is live; automatic GitHub deploys are not connected.
+`vercel deploy --prod` deploys `public/` as frontend output plus `api/proxy.mjs` as the transport function, using the rewrites in `vercel.json`. Direct edge-to-origin rewrites showed intermittent connection errors; the regional function was verified with series details, a 1.7 MB cover image and episode invoice creation. The backend runs with the supplied Dockerfile, persistent `/data`, and server-only provider credentials. The current CLI deployment is live; automatic GitHub deploys are not connected. Vercel request limits apply to uploads; use small comic pages.
 
 MIT, Copyright (c) 2026 Nivesh Gajengi.
