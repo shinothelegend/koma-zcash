@@ -1,0 +1,200 @@
+[
+  {
+    "title": "Nemesis Special",
+    "pitch": "A retired superhero's noodle stand faces its final customer when her old enemy orders the house special.",
+    "character": "The original KOMA cast",
+    "genre": "Superhero",
+    "cover": "/art/archive-0-62507a4468-cover.jpg",
+    "episodeTitle": "Nemesis Special / Archive edition",
+    "summary": "A retired superhero's noodle stand faces its final customer when her old enemy orders the house special.",
+    "pages": [
+      {
+        "panels": [
+          {
+            "img": "/art/archive-0-62507a4468-p1-1.jpg",
+            "alt": "A retired superhero cooks at her tiny alley noodle stand at night.",
+            "shape": "wide",
+            "balloons": [
+              {
+                "kind": "caption",
+                "text": "MADAME WOK. FIFTEEN YEARS RETIRED.",
+                "x": 3,
+                "y": 5,
+                "w": 40
+              },
+              {
+                "kind": "caption",
+                "text": "SHE THOUGHT THE FIGHT WAS OVER.",
+                "x": 56,
+                "y": 5,
+                "w": 40
+              }
+            ]
+          },
+          {
+            "img": "/art/archive-0-62507a4468-p1-2.jpg",
+            "alt": "A customer points at the menu special as Madame Wok freezes in recognition.",
+            "shape": "square",
+            "balloons": [
+              {
+                "kind": "speech",
+                "text": "The special. Extra spicy.",
+                "x": 3,
+                "y": 5,
+                "w": 60,
+                "tail": "right"
+              }
+            ]
+          },
+          {
+            "img": "/art/archive-0-62507a4468-p1-3.jpg",
+            "alt": "Madame Wok's mask drops as she sees her old enemy reflected in the wok.",
+            "shape": "square",
+            "balloons": [
+              {
+                "kind": "thought",
+                "text": "The Condiment King. But I killed him.",
+                "x": 36,
+                "y": 5,
+                "w": 60
+              }
+            ]
+          },
+          {
+            "img": "/art/archive-0-62507a4468-p1-4.jpg",
+            "alt": "Madame Wok faces her nemesis and his army in a dramatic alley showdown.",
+            "shape": "wide",
+            "balloons": [
+              {
+                "kind": "speech",
+                "text": "Ketchup or mustard with your doom?",
+                "x": 3,
+                "y": 5,
+                "w": 32,
+                "tail": "right"
+              },
+              {
+                "kind": "sfx",
+                "text": "SIZZLE-CRACK",
+                "x": 62,
+                "y": 64,
+                "tilt": -8
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "files": [
+      "archive-0-62507a4468-cover.jpg",
+      "archive-0-62507a4468-p1-1.jpg",
+      "archive-0-62507a4468-p1-2.jpg",
+      "archive-0-62507a4468-p1-3.jpg",
+      "archive-0-62507a4468-p1-4.jpg"
+    ],
+    "choices": [
+      "Follow the mysterious visitor",
+      "Uncover the lead character’s past"
+    ],
+    "provenance": "Imported existing KOMA demonstration comic. Original art generated before the Zcash adaptation; this is not evidence of a new AI or Zcash run."
+  },
+  {
+    "title": "The Engine Breathes",
+    "pitch": "Juniper Vex sneaks into a junkyard to steal a racing engine and discovers it's alive.",
+    "character": "The original KOMA cast",
+    "genre": "Sci-fi",
+    "cover": "/art/archive-1-b200142f09-cover.jpg",
+    "episodeTitle": "The Engine Breathes / Archive edition",
+    "summary": "Juniper Vex sneaks into a junkyard to steal a racing engine and discovers it's alive.",
+    "pages": [
+      {
+        "panels": [
+          {
+            "img": "/art/archive-1-b200142f09-p1-1.jpg",
+            "alt": "Juniper Vex climbs over scrap in a moonlit junkyard.",
+            "shape": "wide",
+            "balloons": [
+              {
+                "kind": "caption",
+                "text": "Sector 9 scrapyard. 2 AM. Security drones offline.",
+                "x": 3,
+                "y": 5,
+                "w": 40
+              },
+              {
+                "kind": "thought",
+                "text": "One engine. That's all I need to get Kael back.",
+                "x": 64,
+                "y": 68,
+                "w": 32
+              }
+            ]
+          },
+          {
+            "img": "/art/archive-1-b200142f09-p1-2.jpg",
+            "alt": "Juniper pries open a crate with her prosthetic arm.",
+            "shape": "square",
+            "balloons": [
+              {
+                "kind": "speech",
+                "text": "Come on, baby... be the 800-horsepower miracle I need.",
+                "x": 3,
+                "y": 5,
+                "w": 60,
+                "tail": "right"
+              }
+            ]
+          },
+          {
+            "img": "/art/archive-1-b200142f09-p1-3.jpg",
+            "alt": "A racing engine breathes and glows with bioluminescent light.",
+            "shape": "square",
+            "balloons": [
+              {
+                "kind": "sfx",
+                "text": "THRUM-THUMP.",
+                "x": 50,
+                "y": 12,
+                "tilt": -8
+              }
+            ]
+          },
+          {
+            "img": "/art/archive-1-b200142f09-p1-4.jpg",
+            "alt": "The engine stands on mechanical legs as other engines awaken around Juniper.",
+            "shape": "wide",
+            "balloons": [
+              {
+                "kind": "speech",
+                "text": "Okay. Did NOT read the manual on this one.",
+                "x": 3,
+                "y": 5,
+                "w": 32,
+                "tail": "right"
+              },
+              {
+                "kind": "sfx",
+                "text": "SKREEE-CLICK",
+                "x": 62,
+                "y": 64,
+                "tilt": -8
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "files": [
+      "archive-1-b200142f09-cover.jpg",
+      "archive-1-b200142f09-p1-1.jpg",
+      "archive-1-b200142f09-p1-2.jpg",
+      "archive-1-b200142f09-p1-3.jpg",
+      "archive-1-b200142f09-p1-4.jpg"
+    ],
+    "choices": [
+      "Follow the mysterious visitor",
+      "Uncover the lead character’s past"
+    ],
+    "provenance": "Imported existing KOMA demonstration comic. Original art generated before the Zcash adaptation; this is not evidence of a new AI or Zcash run."
+  }
+]
